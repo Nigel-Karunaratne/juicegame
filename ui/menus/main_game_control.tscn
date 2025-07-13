@@ -19,4 +19,13 @@ offset_right = 112.0
 offset_bottom = 101.0
 text = "UI_MAIN_BTN_OPENMAP"
 
+[node name="TSTART" type="Button" parent="."]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 527.0
+offset_right = 701.0
+offset_bottom = 558.0
+text = "START DIALOGEU"
+
 [connection signal="pressed" from="MapButton" to="." method="map_button_pressed"]
+[connection signal="pressed" from="TSTART" to="." method="_TBIND"]
