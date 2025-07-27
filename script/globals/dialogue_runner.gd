@@ -51,8 +51,10 @@ func start_dialogue(event_key: String) -> void:
 	
 	# TODO - show UI
 	self.visible = true
-	
 	current_event_key = event_key
+	
+	GlobalEventBus.sg_dialogue_start.emit(current_event_key)
+	
 	show_next_line()
 	return
 

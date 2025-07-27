@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdkg3bubliwb8"]
+[gd_scene load_steps=4 format=3 uid="uid://bdkg3bubliwb8"]
 
 [ext_resource type="PackedScene" uid="uid://by2o8j0t8ywg4" path="res://ui/menus/dialogue_control.tscn" id="1_4bpii"]
+[ext_resource type="PackedScene" uid="uid://cfqg3rkqcerfd" path="res://prefab/daytimer.tscn" id="1_koxfw"]
 [ext_resource type="PackedScene" uid="uid://dqwaatvrtchi1" path="res://ui/menus/main_game_control.tscn" id="1_te4xm"]
 
 [node name="GameLevelRoot" type="Node2D"]
+
+[node name="DayTimer" parent="." instance=ExtResource("1_koxfw")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
