@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://v0ofh1q50b4b"]
+[gd_scene load_steps=4 format=3 uid="uid://v0ofh1q50b4b"]
 
 [ext_resource type="Script" uid="uid://7i8aap3sl3kw" path="res://script/ui/map_control.gd" id="1_okjvy"]
+[ext_resource type="Theme" uid="uid://bpwmdqb4cmb32" path="res://ui/ui_theme.tres" id="2_cio1x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6of3b"]
 bg_color = Color(0.403922, 0.403922, 0.403922, 0.882353)
@@ -53,4 +54,91 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 28
 text = "UI_MAP_BTN_CLOSE"
 
+[node name="MapButtonContainer" type="Control" parent="."]
+layout_mode = 1
+anchor_top = 0.13
+anchor_right = 1.0
+anchor_bottom = 0.906
+offset_top = 0.599991
+offset_bottom = 0.319946
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabButton" type="Button" parent="MapButtonContainer"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = -226.0
+offset_right = 299.0
+offset_bottom = -172.0
+grow_vertical = 0
+theme = ExtResource("2_cio1x")
+theme_override_font_sizes/font_size = 16
+text = "UI_MAP_BTN_LAB"
+
+[node name="RoomButton" type="Button" parent="MapButtonContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.5
+offset_top = -27.0
+offset_right = 125.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_cio1x")
+theme_override_font_sizes/font_size = 16
+text = "UI_MAP_BTN_ROOM"
+
+[node name="GreenhouseButton" type="Button" parent="MapButtonContainer"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -287.0
+offset_top = -222.0
+offset_right = -36.0
+offset_bottom = -168.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_cio1x")
+theme_override_font_sizes/font_size = 16
+text = "UI_MAP_BTN_GREENHOUSE"
+
+[node name="ConstructionSiteButton" type="Button" parent="MapButtonContainer"]
+layout_mode = 1
+offset_left = 49.0
+offset_top = 187.0
+offset_right = 316.0
+offset_bottom = 241.0
+theme = ExtResource("2_cio1x")
+theme_override_font_sizes/font_size = 16
+text = "UI_MAP_BTN_CONSTRUCTION_SITE"
+
+[node name="DungeonButton" type="Button" parent="MapButtonContainer"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -305.0
+offset_top = 186.0
+offset_right = -54.0
+offset_bottom = 240.0
+grow_horizontal = 0
+theme = ExtResource("2_cio1x")
+theme_override_font_sizes/font_size = 16
+text = "UI_MAP_BTN_DUNGEON"
+
 [connection signal="pressed" from="CloseMapButton" to="." method="close_map_btn_pressed"]
+[connection signal="pressed" from="MapButtonContainer/LabButton" to="." method="lab_btn_pressed"]
+[connection signal="pressed" from="MapButtonContainer/RoomButton" to="." method="room_btn_pressed"]
+[connection signal="pressed" from="MapButtonContainer/GreenhouseButton" to="." method="greenhouse_btn_pressed"]
+[connection signal="pressed" from="MapButtonContainer/ConstructionSiteButton" to="." method="construction_site_btn_pressed"]
+[connection signal="pressed" from="MapButtonContainer/DungeonButton" to="." method="dungeon_btn_pressed"]

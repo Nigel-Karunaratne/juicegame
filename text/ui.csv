@@ -5,3 +5,9 @@ UI_LABEL_MAP,MAP,MAP korean
 
 UI_MAIN_BTN_OPENMAP,Open Map, korean open map
 UI_MAP_BTN_CLOSE,Close Map, k close map
+
+UI_MAP_BTN_LAB,Lab,Lab
+UI_MAP_BTN_GREENHOUSE,Greenhouse,Greenhouse
+UI_MAP_BTN_CONSTRUCTION_SITE,Construction Site,Construction Site
+UI_MAP_BTN_DUNGEON,Dungeon,Dungeon
+UI_MAP_BTN_ROOM,Room,Room
