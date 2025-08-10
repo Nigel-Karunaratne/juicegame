@@ -2,11 +2,7 @@
 DayTimer
 
 This is a Node that is responsible for tracking the in-game time.
-Every 10 real-world minutes is 1 in-game day (24hr period)
-
-CURRENTLY, the day starts at 00:00 and ends at 11:45. THIS SHOULD BE CHANGED LATER.
-
-NEW DAY TIME SYSTEM
+Every 10 real-world minutes is 1 in-game day (8am-12am period) - each in-game 15-minute period is 9.375 seconds
 
 Day int [0, 683] (687 days in a year)
 Month int [0,11] = day // 57 (57 days per month)
@@ -25,10 +21,11 @@ var month : int = 0
 var season : int = 0
 var year : int = 2500
 
-var date_str : String = "10 Jan 2500 (SPRING)"
+var date_str : String = "DD MMM YYYY (SEASON)"
 var time_str : String = "00:00"
 
-var real_seconds_per_quarter_hour : float = 6.25 # 1 hr = 25 seconds, 1 day (24 hrs) = 10 minutes
+var real_seconds_per_quarter_hour : float = 9.375 # 1 hr = 37.5 seconds, 16 hrs (8am-midnight) = 600 seconds = 10 minutes
+#OLD: 6.25 # 1 hr = 25 seconds, 1 day (24 hrs) = 10 minutes
 
 @onready var _change_timer : Timer = %ChangeTimer
 
@@ -70,7 +67,7 @@ func add_time(in_game_seconds: int):
 	time += in_game_seconds
 	if time >= 24 * 4:  # For day being 24 hrs long and split up into 15-minute (1/4-hr) sections
 		# TODO - NOTE that if the time ever reaches this point, player needs to be forcefully put to sleep and wake up later.
-		move_to_next_day(8 * 4)
+		move_to_next_day(14 * 4) # 8 * 4 for 8AM wakeup, 14 * 4 for 14:00 (2PM) wakeup
 		return
 	
 	@warning_ignore("integer_division")
