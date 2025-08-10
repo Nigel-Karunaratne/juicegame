@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqwaatvrtchi1"]
+[gd_scene load_steps=5 format=3 uid="uid://dqwaatvrtchi1"]
 
 [ext_resource type="Script" uid="uid://crepeiawxsdgl" path="res://script/ui/main_game_control.gd" id="1_eta80"]
 [ext_resource type="Theme" uid="uid://bpwmdqb4cmb32" path="res://ui/ui_theme.tres" id="2_s3qmh"]
+[ext_resource type="Script" uid="uid://c0enxqw8ft63a" path="res://script/ui/in_game_date_label.gd" id="3_5m6rc"]
 [ext_resource type="Script" uid="uid://c2mksx3ost6xi" path="res://script/ui/in_game_time_label.gd" id="3_rogwv"]
 
 [node name="MainGameControl" type="Control"]
@@ -21,15 +22,40 @@ offset_right = 224.0
 offset_bottom = 97.0
 text = "UI_MAIN_BTN_OPENMAP"
 
+[node name="InGameDatePanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -313.0
+offset_top = 16.0
+offset_right = -17.0
+offset_bottom = 61.0
+grow_horizontal = 0
+
+[node name="InGameDateLabel" type="Label" parent="InGameDatePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_s3qmh")
+theme_override_font_sizes/font_size = 23
+text = "12 JAN 2025 (SUMMER)"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_5m6rc")
+
 [node name="InGameTimePanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -144.0
-offset_top = 16.0
+offset_top = 60.0
 offset_right = -17.0
-offset_bottom = 57.0
+offset_bottom = 105.0
 grow_horizontal = 0
 
 [node name="InGameTimeLabel" type="Label" parent="InGameTimePanel"]
