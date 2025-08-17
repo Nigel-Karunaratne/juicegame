@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://10ksmy34d3oy"]
+
+[ext_resource type="Script" uid="uid://dkmqbbx4hhvbr" path="res://script/area_changer.gd" id="1_qekor"]
+
+[node name="AreaChanger" type="Node"]
+script = ExtResource("1_qekor")

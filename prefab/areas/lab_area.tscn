@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://8vm3qkydtag6"]
+
+[node name="LabArea" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 315.0
+offset_top = 214.0
+offset_right = 355.0
+offset_bottom = 237.0
+text = "LAB AREA"

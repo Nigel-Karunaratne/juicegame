@@ -34,25 +34,39 @@ func _refresh_map_area_availability() -> void:
 	if not _area_access_tracker_ref.is_area_unlocked(AreaAccessTracker.LOCATIONS.DUNGEON):
 		dungeon_button.disabled = true
 	
+	# TODO - currently does NOT disable current area button. Player should not be able to swap to the same area!
+	
 	return
 
 func lab_btn_pressed() -> void:
 	# Even though btns were disabled before if area was locked, let's still check again to be safe.
-	if not _area_access_tracker_ref.is_area_unlocked(AreaAccessTracker.LOCATIONS.ROOM):
+	if not _area_access_tracker_ref.is_area_unlocked(AreaAccessTracker.LOCATIONS.LAB):
 		return
-	#AreaChange.change
+	GlobalEventBus.sg_changearea_request.emit(AreaAccessTracker.LOCATIONS.LAB)
 	return
 
 func room_btn_pressed() -> void:
+	if not _area_access_tracker_ref.is_area_unlocked(AreaAccessTracker.LOCATIONS.ROOM):
+		return
+	GlobalEventBus.sg_changearea_request.emit(AreaAccessTracker.LOCATIONS.ROOM)
 	return
 
 func greenhouse_btn_pressed() -> void:
+	if not _area_access_tracker_ref.is_area_unlocked(AreaAccessTracker.LOCATIONS.GREENHOUSE):
+		return
+	GlobalEventBus.sg_changearea_request.emit(AreaAccessTracker.LOCATIONS.GREENHOUSE)
 	return
 
 func construction_site_btn_pressed() -> void:
+	if not _area_access_tracker_ref.is_area_unlocked(AreaAccessTracker.LOCATIONS.CONSTRUCTION_SITE):
+		return
+	GlobalEventBus.sg_changearea_request.emit(AreaAccessTracker.LOCATIONS.CONSTRUCTION_SITE)
 	return
 
 func dungeon_btn_pressed() -> void:
+	if not _area_access_tracker_ref.is_area_unlocked(AreaAccessTracker.LOCATIONS.DUNGEON):
+		return
+	GlobalEventBus.sg_changearea_request.emit(AreaAccessTracker.LOCATIONS.DUNGEON)
 	return
 
 func close_map_btn_pressed() -> void:

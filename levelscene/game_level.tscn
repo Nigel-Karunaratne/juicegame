@@ -1,15 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdkg3bubliwb8"]
+[gd_scene load_steps=7 format=3 uid="uid://bdkg3bubliwb8"]
 
 [ext_resource type="PackedScene" uid="uid://by2o8j0t8ywg4" path="res://ui/menus/dialogue_control.tscn" id="1_4bpii"]
 [ext_resource type="PackedScene" uid="uid://cfqg3rkqcerfd" path="res://prefab/daytimer.tscn" id="1_koxfw"]
 [ext_resource type="PackedScene" uid="uid://dqwaatvrtchi1" path="res://ui/menus/main_game_control.tscn" id="1_te4xm"]
 [ext_resource type="PackedScene" uid="uid://df5ivmnbkdu4d" path="res://prefab/area_manager.tscn" id="2_8oiqg"]
+[ext_resource type="PackedScene" uid="uid://10ksmy34d3oy" path="res://prefab/area_changer.tscn" id="3_55cmm"]
+[ext_resource type="PackedScene" uid="uid://2uxkf7cewk4a" path="res://prefab/areas/room_area.tscn" id="4_68hdx"]
 
 [node name="GameLevelRoot" type="Node2D"]
 
 [node name="DayTimer" parent="." instance=ExtResource("1_koxfw")]
 
 [node name="AreaAccessTracker" parent="." groups=["AreaAccessTracker"] instance=ExtResource("2_8oiqg")]
+
+[node name="AreaChanger" parent="." node_paths=PackedStringArray("_current_area_ref") instance=ExtResource("3_55cmm")]
+_current_area_ref = NodePath("../RoomArea")
+
+[node name="RoomArea" parent="." groups=["Area"] instance=ExtResource("4_68hdx")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -6,8 +6,6 @@ unlocked, which ones are accessible, and which ones the player can go to.
 
 For now, these statuses are kept track in individual variables. If more flexibility is required,
 a dictionary w/ enum as keys approach can be used. See commented section. 
-
-Receives and emits signals from the GlobalEventBus.
 """
 
 class_name AreaAccessTracker
