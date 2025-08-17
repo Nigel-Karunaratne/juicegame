@@ -7,38 +7,38 @@ extends Control
 @export var construction_site_button : Button
 @export var dungeon_button : Button
 
-var _area_manager_reference : AreaManager
+var _area_access_tracker_ref : AreaAccessTracker
 
 func _ready() -> void:
-	var managers_in_group = get_tree().get_nodes_in_group("AreaManager")
+	var managers_in_group = get_tree().get_nodes_in_group("AreaAccessTracker")
 	if managers_in_group.size() <= 0:
-		push_error("ERROR [MapControl]: in _ready, found no nodes in 'AreaManager' group")
+		push_error("ERROR [MapControl]: in _ready, found no nodes in 'AreaAccessTracker' group")
 	else:
 		if managers_in_group.size() > 1:
-			push_warning("WARNING [MapControl]: in _ready, found >1 node in 'AreaManager' group")
-		_area_manager_reference = managers_in_group[0]
+			push_warning("WARNING [MapControl]: in _ready, found >1 node in 'AreaAccessTracker' group")
+		_area_access_tracker_ref = managers_in_group[0]
 	
 	_refresh_map_area_availability()
 	return
 
 # Disable btns for inactive areas / Set Status of buttons. As a separate fn for added flexability if needed later on.
 func _refresh_map_area_availability() -> void:
-	if not _area_manager_reference.is_area_unlocked(AreaManager.LOCATIONS.ROOM):
+	if not _area_access_tracker_ref.is_area_unlocked(AreaAccessTracker.LOCATIONS.ROOM):
 		room_button.disabled = true
-	if not _area_manager_reference.is_area_unlocked(AreaManager.LOCATIONS.GREENHOUSE):
+	if not _area_access_tracker_ref.is_area_unlocked(AreaAccessTracker.LOCATIONS.GREENHOUSE):
 		greenhouuse_button.disabled = true
-	if not _area_manager_reference.is_area_unlocked(AreaManager.LOCATIONS.LAB):
+	if not _area_access_tracker_ref.is_area_unlocked(AreaAccessTracker.LOCATIONS.LAB):
 		lab_button.disabled = true
-	if not _area_manager_reference.is_area_unlocked(AreaManager.LOCATIONS.CONSTRUCTION_SITE):
+	if not _area_access_tracker_ref.is_area_unlocked(AreaAccessTracker.LOCATIONS.CONSTRUCTION_SITE):
 		construction_site_button.disabled = true
-	if not _area_manager_reference.is_area_unlocked(AreaManager.LOCATIONS.DUNGEON):
+	if not _area_access_tracker_ref.is_area_unlocked(AreaAccessTracker.LOCATIONS.DUNGEON):
 		dungeon_button.disabled = true
 	
 	return
 
 func lab_btn_pressed() -> void:
 	# Even though btns were disabled before if area was locked, let's still check again to be safe.
-	if not _area_manager_reference.is_area_unlocked(AreaManager.LOCATIONS.ROOM):
+	if not _area_access_tracker_ref.is_area_unlocked(AreaAccessTracker.LOCATIONS.ROOM):
 		return
 	#AreaChange.change
 	return

@@ -9,7 +9,7 @@
 
 [node name="DayTimer" parent="." instance=ExtResource("1_koxfw")]
 
-[node name="AreaManager" parent="." groups=["AreaManager"] instance=ExtResource("2_8oiqg")]
+[node name="AreaAccessTracker" parent="." groups=["AreaAccessTracker"] instance=ExtResource("2_8oiqg")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

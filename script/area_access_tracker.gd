@@ -1,5 +1,5 @@
 """
-AreaManager
+AreaAccessTracker
 
 This Node keeps track of the different areas within the game, which ones are 
 unlocked, which ones are accessible, and which ones the player can go to.
@@ -10,7 +10,7 @@ a dictionary w/ enum as keys approach can be used. See commented section.
 Receives and emits signals from the GlobalEventBus.
 """
 
-class_name AreaManager
+class_name AreaAccessTracker
 extends Node
 
 enum LOCATIONS { ROOM, GREENHOUSE, LAB, CONSTRUCTION_SITE, DUNGEON }
