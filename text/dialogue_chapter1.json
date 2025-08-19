@@ -16,19 +16,21 @@
         "en": [
             ["Narration", "November, 2060"],
             ["Soniche", "Can't believe I'm on Mars."],
-            ["Shane", "Mars welcomes you!"],
-            ["Shane", "We're glad we have another botanist."],
-            ["Shane", "I'm also a botanist, although I love flowers... Anyway, how's Earth?"],
-            ["Soniche", "(I pause, realizing it's been 9 months since I left Earth)"],
+            ["Shane", "Hah, yeah… gets real once you’re actually standing here, huh?],
+            ["Shane", "This is your room."],
+            ["Shane", "It’s been a while since I saw another human. Seriously. Hi."],
+            ["Shane", "I’m a botanist too, by the way. Lately, I've mostly been messing around with flowers."]
+            ["Shane", "How’s Earth?"]
+            ["Soniche", "(I pause. It finally hits me that it’s been nine months since I left Earth.)"],
             {
                 "options": [
                     {
-                        "text": "Really bad.",
+                        "text": "It was awful.",
                         "next_event": "branch_earth_dead",
                         "set_flag": "earth_bad"
                     },
                     {
-                        "text": "I don't remember.",
+                        "text": "I don't really remember.",
                         "next_event": "branch_earth_forgotten",
                         "set_flag": "earth_forgot"
                     }
@@ -61,8 +63,8 @@
 
     "branch_earth_dead": {
         "en": [
-            ["Shane", "I've received the report but... I guess I didn't want to believe the words on a laptop."],
-            ["Shane", "Still, we’ve got a shot here. Let’s not waste it."]
+            ["Shane", "Whatever shape Earth’s in… let’s just keep pushing forward."],
+            ["Shane", "I get updates through the laptop, but honestly… I barely read them."]
         ],
         "ko": [
             ["Shane", "네... 리포트는 받았는데, 컴퓨터 스크린에 뜬 글자로는 와닿지 않았던 것 같습니다."],
@@ -72,9 +74,9 @@
 
     "branch_earth_forgotten": {
         "en": [
-            ["Shane", "Oh... Right. That's understandable. It takes a while to get here.."],
-            ["Shane", "We stay in contact with Earth through the laptop."],
-            ["Shane", "I think deep down, everyone here still misses Earth."]
+            ["Shane", "Took you a while to get here, huh? But still… You don’t remember?"],
+            ["Shane", "…Anyway, you can connect to Earth through the laptop here. "],
+            ["Shane", "Check in whenever you feel homesick."]
         ],
         "ko": [
             ["셰인", "아... 맞아요. 괜찮습니다. 여기 오는데 한참 걸리셨죠."],
