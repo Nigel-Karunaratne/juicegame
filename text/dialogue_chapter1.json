@@ -20,7 +20,8 @@
             ["Shane", "This is your room."],
             ["Shane", "It’s been a while since I saw another human. Seriously. Hi."],
             ["Shane", "I’m a botanist too, by the way. Lately, I've mostly been messing around with flowers."]
-            ["Shane", "How’s Earth?"]
+            ["Soniche", "(He is saying a lot.)"],
+            ["Shane", "...How’s Earth?"]
             ["Soniche", "(I pause. It finally hits me that it’s been nine months since I left Earth.)"],
             {
                 "options": [
@@ -39,20 +40,23 @@
         ],
         "ko": [
             ["소니체", "2160년, 11월."],
-            ["소니체", "화성에 있다는게 아직 믿기지않는다."],
-            ["셰인", "화성에 오신 것을 환영합니다!"],
-            ["셰인", "식물학자분이 이렇게 또 오셔서 저희 모두 기쁩니다."],
-            ["셰인", "저도 식물학자에요. 특히 꽃을 좋아하지만요... 아무튼, 지구는 어떤가요?"],
+            ["소니체", "화성에 있다는게 아직 믿기지않네요."],
+            ["셰인", "뭐... 이렇게 직접 보기전까진 그렇지."],
+            ["셰인", "여기는 당신 방."],
+            ["셰인", "다른 사람을 보는게 정말 오랜만이라서. 반갑다. 진심이야."],
+            ["셰인", "나도 식물학자야, 참고로. 최근에는 꽃에만 신경쓰긴하지만."]
+            ["소니체", "(말이 좀 많네.)"],
+            ["셰인", "...지구는 어때?"]
             ["소니체", "(나는 잠시 멈칫한다. 지구를 떠나온지 9개월이 지났다는 사실이 실감났다.)"],
             {
                 "options": [
                     {
-                        "text": "최악이에요.",
+                        "text": "최악이었어요.",
                         "next_event": "branch_earth_dead",
                         "set_flag": "earth_bad"
                     },
                     {
-                        "text": "기억이 안나요.",
+                        "text": "기억이 안나네요.",
                         "next_event": "branch_earth_forgotten",
                         "set_flag": "earth_forgot"
                     }
@@ -67,8 +71,8 @@
             ["Shane", "I get updates through the laptop, but honestly… I barely read them."]
         ],
         "ko": [
-            ["Shane", "네... 리포트는 받았는데, 컴퓨터 스크린에 뜬 글자로는 와닿지 않았던 것 같습니다."],
-            ["Shane", "하지만 여기선 기회가 남아있습니다. 화이팅합시다."]
+            ["셰인", "지구가 어떤 상태든... 그냥 우린 앞만 보자."],
+            ["셰인", "노트북으로 소식은 받긴 하는데, 솔직히... 거의 읽지도 않아."]
         ]
     },
 
@@ -79,9 +83,10 @@
             ["Shane", "Check in whenever you feel homesick."]
         ],
         "ko": [
-            ["셰인", "아... 맞아요. 괜찮습니다. 여기 오는데 한참 걸리셨죠."],
-            ["셰인", "여기서는 노트북을 통해 지구와 소통합니다."],
-            ["셰인", "여기 있는 모두가 마음 한 켠에선 지구를 그리워하고 있는 것 같습니다."]
+            ["셰인", "도착하기까지 꽤 걸렸지? 그래도 그렇지... 기억 안 나?"]
+            ["셰인", "...아무튼, 여기 노트북으로 지구와 연결할 수 있어."]
+            ["셰인", "혹시라도 그리울때마다 확인해 봐."]
         ]
     }
+
 }
