@@ -1,11 +1,80 @@
-[gd_scene load_steps=2 format=3 uid="uid://con6we83mwy5x"]
+[gd_scene load_steps=6 format=3 uid="uid://con6we83mwy5x"]
 
 [ext_resource type="Script" uid="uid://dy7bwqnasol5t" path="res://script/ui/dialogue_option_button.gd" id="1_p23en"]
+[ext_resource type="Theme" uid="uid://bpwmdqb4cmb32" path="res://ui/ui_theme.tres" id="1_sqc3n"]
+
+[sub_resource type="Animation" id="Animation_p23en"]
+resource_name = "dialogue_btn_selected"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0.2, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sqc3n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sqc3n"]
+_data = {
+&"RESET": SubResource("Animation_sqc3n"),
+&"dialogue_btn_selected": SubResource("Animation_p23en")
+}
 
 [node name="DialogueOptionButton" type="Button"]
 offset_right = 135.0
 offset_bottom = 47.0
+theme = ExtResource("1_sqc3n")
 text = "placeholder text"
 script = ExtResource("1_p23en")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_sqc3n")
+}
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

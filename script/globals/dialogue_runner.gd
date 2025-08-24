@@ -19,7 +19,7 @@ var json_data
 
 func _ready() -> void:
 	GlobalEventBus.sg_start_dialogue_request.connect(start_dialogue)
-	GlobalEventBus.sg_dialogue_option_selected.connect(on_option_selected)
+	GlobalEventBus.sg_dialogue_option_selected_end_anim.connect(on_option_selected)
 	visible = false
 	load_text()
 	
