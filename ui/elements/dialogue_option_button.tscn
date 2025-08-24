@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://con6we83mwy5x"]
+
+[ext_resource type="Script" uid="uid://dy7bwqnasol5t" path="res://script/ui/dialogue_option_button.gd" id="1_p23en"]
+
+[node name="DialogueOptionButton" type="Button"]
+offset_right = 135.0
+offset_bottom = 47.0
+text = "placeholder text"
+script = ExtResource("1_p23en")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

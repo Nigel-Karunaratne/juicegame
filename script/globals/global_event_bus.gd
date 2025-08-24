@@ -6,6 +6,7 @@ extends Node
 signal sg_start_dialogue_request(event_name)
 signal sg_dialogue_end(event_name)
 signal sg_dialogue_start(event_name)
+signal sg_dialogue_option_selected
 
 signal sg_worldtime_change(new_time_as_str) # Emitted when the time in-game changes.
 signal sg_worldtime_hourchange(new_time_as_str) # Emitted when the time in-game progresses to the next hour
