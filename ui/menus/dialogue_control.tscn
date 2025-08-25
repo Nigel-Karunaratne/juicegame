@@ -29,6 +29,12 @@ offset_right = 305.0
 offset_bottom = 347.0
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="NamePanel"]
+visible = false
+layout_mode = 0
+offset_right = 1984.0
+offset_bottom = 1984.0
+
 [node name="MarginContainer" type="MarginContainer" parent="NamePanel"]
 layout_mode = 1
 anchors_preset = 15

@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://2uxkf7cewk4a"]
+[gd_scene load_steps=3 format=3 uid="uid://2uxkf7cewk4a"]
+
+[ext_resource type="Texture2D" uid="uid://5hho33h5olkg" path="res://texture/좌측 테이블.png" id="1_x7o8t"]
+[ext_resource type="Texture2D" uid="uid://cvakvdpb4fej6" path="res://texture/컴퓨터.png" id="2_b7vwu"]
 
 [node name="RoomArea" type="Node2D"]
 
@@ -8,3 +11,16 @@ offset_top = 214.0
 offset_right = 355.0
 offset_bottom = 237.0
 text = "ROOM AREA"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(210, 1149)
+scale = Vector2(5.195, 5.195)
+texture = ExtResource("1_x7o8t")
+
+[node name="Laptop" type="TextureButton" parent="."]
+offset_left = 45.0
+offset_top = 1121.0
+offset_right = 206.0
+offset_bottom = 1246.0
+texture_normal = ExtResource("2_b7vwu")
+stretch_mode = 5
