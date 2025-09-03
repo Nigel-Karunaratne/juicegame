@@ -31,18 +31,18 @@ func _ready() -> void:
 func _on_hour_change() -> void:
 	# Change CO2
 	# TODO - change humidity if needed
-	_change_co2_by(-5)
+	change_co2_by(-5)
 	return
 
 func _on_time_change() -> void:
 	# TODO - update plant growth information
 	return
 
-func _change_humidity_by(amount : int) -> void:
+func change_humidity_by(amount : int) -> void:
 	humidity_level = clamp(humidity_level + amount, 0, 100)
 	return
 
-func _change_co2_by(ammount: int):
+func change_co2_by(ammount: int):
 	co2_level = clamp(co2_level + ammount, 0, 100)
 	return
 
