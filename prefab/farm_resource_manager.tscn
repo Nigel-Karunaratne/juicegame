@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://rems0402sbl5"]
+
+[ext_resource type="Script" uid="uid://ole5soo1tr27" path="res://script/greenhouse_resource_manager.gd" id="1_av1fm"]
+
+[node name="FarmResourceManager" type="Node"]
+script = ExtResource("1_av1fm")

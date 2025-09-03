@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://05d1hgq13xsx" path="res://texture/0830/Object_Closet.png" id="11_im0cg"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r26fy"]
-load_path = "res://.godot/imported/Map_Open_Icon.webp-1904e70a9db2cdbed9c4f17cc755168d.ctex"
 
 [node name="RoomArea" type="Node2D"]
 

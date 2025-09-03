@@ -1,22 +1,23 @@
-class_name CO2Manager
+class_name FarmResourceManager
 extends Node
 
 var co2_level = 100 #range 100 to 0
+var humidity_level : int = 50 #range 100 to 0
 
 func _ready() -> void:
 	GlobalEventBus.sg_worldtime_hourchange.connect(_on_hour_change.unbind(1))
 	return
 
 func _on_hour_change() -> void:
-	_decrease_co2(5)
+	_change_co2_by(-5)
 	return
 
-func _decrease_co2(ammount: int):
-	var new_co2 = co2_level - ammount
-	if new_co2 < 0:
-		co2_level = 0
-	else:
-		co2_level = new_co2
+func _change_humidity_by(amount : int) -> void:
+	humidity_level = clamp(humidity_level + amount, 0, 100)
+	return
+
+func _change_co2_by(ammount: int):
+	co2_level = clamp(co2_level + ammount, 0, 100)
 	return
 
 func inject_random_co2() -> void:

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7seph2h3fvju"]
+
+[ext_resource type="Script" uid="uid://di2iig2tj8i16" path="res://script/player_vitals.gd" id="1_ena0h"]
+
+[node name="PlayerVitals" type="Node"]
+script = ExtResource("1_ena0h")

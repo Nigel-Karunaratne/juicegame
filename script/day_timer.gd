@@ -67,7 +67,7 @@ func add_time(in_game_seconds: int):
 	time += in_game_seconds
 	if time >= 24 * 4:  # For day being 24 hrs long and split up into 15-minute (1/4-hr) sections
 		# TODO - NOTE that if the time ever reaches this point, player needs to be forcefully put to sleep and wake up later.
-		move_to_next_day(14 * 4) # 8 * 4 for 8AM wakeup, 14 * 4 for 14:00 (2PM) wakeup
+		move_to_next_day_at_specific_time(14 * 4) # 8 * 4 for 8AM wakeup, 14 * 4 for 14:00 (2PM) wakeup
 		return
 	
 	@warning_ignore("integer_division")
@@ -79,7 +79,13 @@ func add_time(in_game_seconds: int):
 		GlobalEventBus.sg_worldtime_hourchange.emit(time_str)
 	return
 
-func move_to_next_day(starting_time: int) -> void:
+func move_to_next_day_at_specific_time(starting_time: int) -> void:
+	# BEFORE moving days, check if the player is over midnight (and thus sleeps in)
+	if time >= 24 * 4:
+		GlobalEventBus.sg_worldtime_newday_sleepin.emit()
+	else:
+		GlobalEventBus.sg_worldtime_newday_ontime.emit()
+	
 	day += 1
 	@warning_ignore("integer_division")
 	month = int(day / 57)

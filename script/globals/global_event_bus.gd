@@ -12,6 +12,8 @@ signal sg_dialogue_option_selected_end_anim
 signal sg_worldtime_change(new_time_as_str) # Emitted when the time in-game changes.
 signal sg_worldtime_hourchange(new_time_as_str) # Emitted when the time in-game progresses to the next hour
 signal sg_worldtime_datechange(new_date_as_str) # Emitted when the date in-game changes
+signal sg_worldtime_newday_ontime() # Simple signal emitted when day changes to a new day, as normal
+signal sg_worldtime_newday_sleepin() # Simple signal emitted when day changes to a new day, with player not sleeping on time and thus sleeping in
 
 signal sg_changearea_request(location_as_enum) # Emitted when a node, like the Map, wants to change area.
 signal sg_changearea_start(location_as_enum) # Emitted when the AreaChanges starts changing areas
