@@ -26,6 +26,7 @@ func can_do_any_action(value: int) -> bool:
 	return energy >= value
 
 func decrease_energy_by(value: int) -> void:
+	energy = clamp(energy - value, 0, 100)
 	return
 
 func set_energy_new_day_on_time() -> void:
