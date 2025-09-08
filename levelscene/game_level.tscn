@@ -10,7 +10,7 @@
 
 [node name="GameLevelRoot" type="Node2D"]
 
-[node name="DayTimer" parent="." instance=ExtResource("1_koxfw")]
+[node name="DayTimer" parent="." groups=["DayTimer"] instance=ExtResource("1_koxfw")]
 
 [node name="AreaAccessTracker" parent="." groups=["AreaAccessTracker"] instance=ExtResource("2_8oiqg")]
 

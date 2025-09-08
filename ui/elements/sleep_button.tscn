@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxn4xrpdm3jyg"]
+
+[ext_resource type="Theme" uid="uid://bpwmdqb4cmb32" path="res://ui/ui_theme.tres" id="1_ubcxx"]
+[ext_resource type="Script" uid="uid://cw3lofgeqsidi" path="res://script/ui/sleep_button.gd" id="2_8w0ne"]
+
+[node name="SleepButton" type="Button"]
+offset_right = 61.0
+offset_bottom = 35.0
+theme = ExtResource("1_ubcxx")
+theme_override_font_sizes/font_size = 32
+text = "SLEEP NOW"
+script = ExtResource("2_8w0ne")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

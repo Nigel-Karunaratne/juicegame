@@ -4,10 +4,12 @@ DayTimer
 This is a Node that is responsible for tracking the in-game time.
 Every 10 real-world minutes is 1 in-game day (8am-12am period) - each in-game 15-minute period is 9.375 seconds
 
-Day int [0, 683] (687 days in a year)
+Day int [0, 56] (684 days in a year --> total day in year = day + month * 57)
 Month int [0,11] = day // 57 (57 days per month)
 Season int [0,3] = 0 if month == 11 else (month + 1) // 3 (3 months per season, december, jan, feb are meteorlogical winter, every 3 months are new season)
 Year int [2500, inf]
+
+Should be part of a node group called DayTimer
 
 Receives and emits signals from the GlobalEventBus.
 """
@@ -47,9 +49,8 @@ func _ready() -> void:
 	
 	# Force the UI to show the proper date. HOWEVER, due to load order, we need to delay this by a bit
 	await get_tree().process_frame
-	print('emitting')
 	GlobalEventBus.sg_worldtime_datechange.emit(date_str)
-	GlobalEventBus.sg_worldtime_hourchange.emit(time_str)
+	GlobalEventBus.sg_worldtime_change.emit(time_str)
 
 func pause_timer() -> void:
 	_change_timer.paused = true
@@ -58,10 +59,18 @@ func pause_timer() -> void:
 func resume_timer() -> void:
 	_change_timer.paused = false
 	return
+	
+func reset_timer() -> void:
+	_change_timer.paused = false
+	_change_timer.start()
+	return
 
 func _on_timer_timeout() -> void:
 	add_time(1)
 	return
+
+#func _process(delta: float) -> void:
+#	print(_change_timer.time_left)
 
 func add_time(in_game_seconds: int):
 	time += in_game_seconds
@@ -79,6 +88,13 @@ func add_time(in_game_seconds: int):
 		GlobalEventBus.sg_worldtime_hourchange.emit(time_str)
 	return
 
+func start_sleeping() -> void:
+	move_to_next_day_at_specific_time(32)
+	return
+
+# Actually does the moving to the next day, including fading out UI and saving.
+# TODO - save data?
+# TODO - fade-out UI.
 func move_to_next_day_at_specific_time(starting_time: int) -> void:
 	# BEFORE moving days, check if the player is over midnight (and thus sleeps in)
 	if time >= 24 * 4:
@@ -86,19 +102,35 @@ func move_to_next_day_at_specific_time(starting_time: int) -> void:
 	else:
 		GlobalEventBus.sg_worldtime_newday_ontime.emit()
 	
+	pause_timer()
+	# TODO - fade to black?
+	
 	day += 1
 	@warning_ignore("integer_division")
-	month = int(day / 57)
+	if (day >= 57):
+		month += 1
+		day = 0
 	@warning_ignore("integer_division")
-	season = 0 if month == 11 else int((month + 1) / 3)
-	if month > 11:
+	if month >= 12:
 		year += 1
-	date_str = "%d %s $04d (%s)" % [day + 1, MONTH_INT_TO_STR[month].substr(0,3), year, SEASON_INT_TO_STR[month]]
+		month = 0
+		day = 0
+	
+	season = 0 if month == 11 else int((month + 1) / 3)
+	
+	date_str = "%d %s %04d (%s)" % [day + 1, MONTH_INT_TO_STR[month].substr(0,3), year, SEASON_INT_TO_STR[season]]
 	
 	time = starting_time
 	@warning_ignore("integer_division")
 	time_str = "%02d:%02d" % [int(time / 4), time % 4 * 15]
 	
-	# NOTE - currently do NOT emit signals for time change and hour change, but do emit signal for day change
+	# Move player back to room
+	GlobalEventBus.sg_changearea_request.emit(AreaAccessTracker.LOCATIONS.ROOM)
+	
+	# TODO - unfade from black?
+	reset_timer()
+	
+	# NOTE - currently do NOT emit signals for hour change, but do emit signal for day change and time change
 	GlobalEventBus.sg_worldtime_datechange.emit(date_str)
+	GlobalEventBus.sg_worldtime_change.emit(time_str)
 	return

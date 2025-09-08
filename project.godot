@@ -31,6 +31,10 @@ window/size/resizable=false
 window/stretch/mode="viewport"
 window/handheld/orientation=1
 
+[gui]
+
+theme/custom="uid://bpwmdqb4cmb32"
+
 [internationalization]
 
 locale/translations=PackedStringArray("res://text/ui.en.translation", "res://text/ui.ko.translation")
