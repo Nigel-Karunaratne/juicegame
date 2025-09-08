@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://ryk5dpmrq3l6"]
+
+[ext_resource type="Theme" uid="uid://bpwmdqb4cmb32" path="res://ui/ui_theme.tres" id="1_fbp00"]
+[ext_resource type="PackedScene" uid="uid://d2qp8gg8oh5xl" path="res://ui/elements/farm_item_button.tscn" id="2_3ov4e"]
+
+[node name="FarmingControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.0
+offset_top = 142.0
+offset_right = 200.0
+offset_bottom = 536.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fbp00")
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="FarmItemButton" parent="GridContainer" instance=ExtResource("2_3ov4e")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FarmItemButton2" parent="GridContainer" instance=ExtResource("2_3ov4e")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FarmItemButton3" parent="GridContainer" instance=ExtResource("2_3ov4e")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FarmItemButton4" parent="GridContainer" instance=ExtResource("2_3ov4e")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FarmItemButton5" parent="GridContainer" instance=ExtResource("2_3ov4e")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FarmItemButton6" parent="GridContainer" instance=ExtResource("2_3ov4e")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FarmItemButton7" parent="GridContainer" instance=ExtResource("2_3ov4e")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FarmItemButton8" parent="GridContainer" instance=ExtResource("2_3ov4e")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FarmItemButton9" parent="GridContainer" instance=ExtResource("2_3ov4e")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

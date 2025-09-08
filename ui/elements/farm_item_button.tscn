@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2qp8gg8oh5xl"]
+
+[ext_resource type="Script" uid="uid://ty2co71ydak6" path="res://script/ui/farm_item_button.gd" id="1_8qq7c"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yfm5m"]
+size = Vector2(256, 256)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8qq7c"]
+size = Vector2(256, 256)
+
+[node name="FarmItemButton" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = SubResource("PlaceholderTexture2D_yfm5m")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("1_8qq7c")
+texture_to_use = SubResource("PlaceholderTexture2D_8qq7c")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

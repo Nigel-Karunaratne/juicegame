@@ -36,6 +36,10 @@ func _on_hour_change() -> void:
 
 func _on_time_change() -> void:
 	# TODO - update plant growth information
+	for plant in planted_crops:
+		# TODO - update state
+		# TODO - update farming UI if needed
+		return
 	return
 
 func change_humidity_by(amount : int) -> void:
