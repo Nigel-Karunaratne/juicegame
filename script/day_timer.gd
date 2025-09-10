@@ -39,7 +39,8 @@ func _ready() -> void:
 	_change_timer.timeout.connect(_on_timer_timeout)
 	_change_timer.start()
 	
-	time_str = "%02d:%02d" % [int(time / 4), time % 4 * 15]
+	@warning_ignore("integer_division")
+	time_str = "%02d:%02d %s" % [int(time / 4) if time < 52 else int(time/4) - 12, time % 4 * 15, "AM" if time < 48 else "PM"]
 	date_str = "%d %s %04d (%s)" % [day + 1, MONTH_INT_TO_STR[month].substr(0,3), year, SEASON_INT_TO_STR[month]]
 	
 	# Pause/Resume timer when dialogue starts/ends
@@ -80,7 +81,7 @@ func add_time(in_game_seconds: int):
 		return
 	
 	@warning_ignore("integer_division")
-	time_str = "%02d:%02d" % [int(time / 4), time % 4 * 15]
+	time_str = "%02d:%02d %s" % [int(time / 4) if time < 52 else int(time/4) - 12, time % 4 * 15, "AM" if time < 48 else "PM"]
 	GlobalEventBus.sg_worldtime_change.emit(time_str)
 	
 	if time % 4 == 0:
@@ -116,13 +117,14 @@ func move_to_next_day_at_specific_time(starting_time: int) -> void:
 		month = 0
 		day = 0
 	
+	@warning_ignore("integer_division")
 	season = 0 if month == 11 else int((month + 1) / 3)
 	
 	date_str = "%d %s %04d (%s)" % [day + 1, MONTH_INT_TO_STR[month].substr(0,3), year, SEASON_INT_TO_STR[season]]
 	
 	time = starting_time
 	@warning_ignore("integer_division")
-	time_str = "%02d:%02d" % [int(time / 4), time % 4 * 15]
+	time_str = "%02d:%02d %s" % [int(time / 4) if time < 52 else int(time/4) - 12, time % 4 * 15, "AM" if time < 48 else "PM"]
 	
 	# Move player back to room
 	GlobalEventBus.sg_changearea_request.emit(AreaAccessTracker.LOCATIONS.ROOM)

@@ -24,7 +24,7 @@ func _on_option_selected():
 	self.disabled = true
 	return
 
-func _on_anim_player_finish(name: String) -> void:
+func _on_anim_player_finish(_name: String) -> void:
 	GlobalEventBus.sg_dialogue_option_selected_end_anim.emit()
 	if next_event != "":
 		GlobalEventBus.sg_start_dialogue_request.emit(next_event)

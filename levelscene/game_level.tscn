@@ -19,10 +19,11 @@ _current_area_ref = NodePath("../RoomArea")
 
 [node name="FarmResourceManager" parent="." groups=["FarmResourceManager"] instance=ExtResource("4_vxcbj")]
 
-[node name="RoomArea" parent="." groups=["Area"] instance=ExtResource("4_68hdx")]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
 
 [node name="MainGameControl" parent="CanvasLayer" instance=ExtResource("1_te4xm")]
 
 [node name="DialogueRunnerControl" parent="CanvasLayer" instance=ExtResource("1_4bpii")]
+
+[node name="RoomArea" parent="." groups=["Area"] instance=ExtResource("4_68hdx")]

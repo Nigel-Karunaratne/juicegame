@@ -12,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_eta80")
 
 [node name="MapButton" type="Button" parent="."]
@@ -52,7 +53,7 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -144.0
+offset_left = -149.0
 offset_top = 60.0
 offset_right = -17.0
 offset_bottom = 105.0
@@ -67,7 +68,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_s3qmh")
 theme_override_font_sizes/font_size = 26
-text = "00:00"
+text = "00:00 AM"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_rogwv")

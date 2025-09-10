@@ -78,7 +78,6 @@ position = Vector2(638, 1104)
 texture = ExtResource("11_im0cg")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 10
 
 [node name="SleepButton" parent="CanvasLayer" instance=ExtResource("1_q56il")]
 anchors_preset = 6
